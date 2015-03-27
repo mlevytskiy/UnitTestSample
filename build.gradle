@@ -1,0 +1,38 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:1.2.0-beta1'
+  }
+}
+
+repositories {
+  mavenCentral()
+  jcenter()
+}
+
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion 22
+  buildToolsVersion "22.0.0"
+
+  defaultConfig {
+    applicationId "org.unittestsample"
+    minSdkVersion 18
+    targetSdkVersion 22
+    versionCode 1
+    versionName "1.0"
+  }
+}
+
+dependencies {
+  compile 'com.squareup.retrofit:retrofit:1.9.0'
+  compile 'com.google.code.gson:gson:2.3.1'
+
+  testCompile 'junit:junit:4.12'
+  testCompile 'org.robolectric:robolectric:2.4'
+  testCompile 'com.squareup.assertj:assertj-android:1.0.0'
+  testCompile 'org.mockito:mockito-all:1.9.5'
+}

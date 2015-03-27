@@ -1,0 +1,4 @@
+<resources>
+  <string name="app_name">UnitTestSample</string>
+  <string name="refresh_btn">Refresh</string>
+</resources>
