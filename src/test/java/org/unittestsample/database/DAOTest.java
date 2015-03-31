@@ -7,12 +7,14 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
+import java.io.File;
 import java.util.List;
 
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.contentOf;
 
 @Config(emulateSdk = 18, manifest = "src/main/AndroidManifest.xml")
 @RunWith(RobolectricTestRunner.class)
@@ -35,6 +37,12 @@ public class DAOTest {
         dao.save(transaction2);
         List<Transaction> transactions = dao.getAllTransactions();
         assertThat(2).isEqualTo(transactions.size());
+    }
+
+    @Test
+    public void testReadFile() throws Exception {
+        File file = new File(this.getClass().getClassLoader().getResource("test.txt").getFile());
+        assertThat(contentOf(file)).isEqualTo("some text");
     }
 
 }
